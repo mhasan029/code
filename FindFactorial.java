@@ -1,4 +1,3 @@
-package javaproject;
 
 class MyClass {
 	   int num;

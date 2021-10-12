@@ -50,7 +50,7 @@ fn_start_signaling(){
 fn_jar_update(){
 	echo -e "# ${Green}  Signaling  : new jar update                         \033[34m#";
         cd $signaling_loc
-        mv iTelSwitchPlusSignaling.jar iTelSwitchPlusSignaling.jar__$(date +%F_%s) > /dev/null 2>&1
+        mv iTelSwitchPlusSignaling.jar iTelSwitchPlusSignaling.jar_$(date '+%Y-%m-%d_%H:%M:%S') > /dev/null 2>&1
 	cd $jar_location
 	cp -r iTelSwitchPlusSignaling.jar $signaling_loc
 	fn_start_signaling;
@@ -70,7 +70,7 @@ fn_stop_signaling(){
                         sleep 10
                         kill -9 $process_id > /dev/null 2>&1
                         pkill -f "iTelSwitchPlusSignaling.jar" > /dev/null 2>&1
-						mv iTelSwitchPlusSignaling.log iTelSwitchPlusSignaling.log_$(date +%F_%s) > /dev/null 2>&1
+						mv iTelSwitchPlusSignaling.log iTelSwitchPlusSignaling.log_$(date '+%Y-%m-%d_%H:%M:%S') > /dev/null 2>&1
                         
                 fi
         fi

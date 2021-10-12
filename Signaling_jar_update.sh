@@ -26,7 +26,7 @@ signaling_loc="/usr/local/iTelSwitchPlusSignalingIM"
 			
 #function for check signaling service status
 
-fn_stop_signaling;
+
 fn_signaling_status(){
 	statussignaling="$(cat $signaling_loc/iTelSwitchPlusSignaling.log | grep -w "started successfully")" 
 	if [ ! -z "${statussignaling}" ]
@@ -79,4 +79,4 @@ fn_stop_signaling(){
     
 }
 
-
+fn_stop_signaling;

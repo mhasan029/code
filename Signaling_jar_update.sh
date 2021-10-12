@@ -41,7 +41,7 @@ fn_signaling_status(){
 fn_start_signaling(){
 	echo -e "# ${Green}  Signaling  : going to start                         \033[34m#";
 	cd $signaling_loc
-	sh runiTelSwitchPlusSignaling.sh > /dev/null 2>&1
+	service iTelSwitchPlusSignalingIM start > /dev/null 2>&1
 	sleep 40;
 	fn_signaling_status;
 }
@@ -66,7 +66,7 @@ fn_stop_signaling(){
                 if [ $process_id -gt 0 ];then
 						echo -e "# ${Green}  Signaling  : going to stop                         \033[34m#";
 						cd $signaling_loc 
-                        sh shutdowniTelSwitchPlusSignaling.sh > /dev/null 2>&1
+                        service iTelSwitchPlusSignalingIM stop > /dev/null 2>&1
                         sleep 10
                         kill -9 $process_id > /dev/null 2>&1
                         pkill -f "iTelSwitchPlusSignaling.jar" > /dev/null 2>&1

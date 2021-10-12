@@ -24,7 +24,7 @@ signaling_loc="/usr/local/iTelSwitchPlusSignalingIM"
 			BRed='\033[1;31m'         # Red
 			BGreen='\033[1;32m'       # Green
 			
-
+#function for check signaling service status
 fn_signaling_status(){
 	statussignaling="$(cat $signaling_loc/iTelSwitchPlusSignaling.log | grep -w "started successfully")" 
 	if [ ! -z "${statussignaling}" ]
@@ -34,7 +34,8 @@ fn_signaling_status(){
 			echo -e "# ${BRed}  Signaling  : Failed                         \033[34m#";
 	fi
 }
-			
+
+#function to start signaling service			
 fn_start_signaling(){
 	echo -e "# ${Green}  Signaling  : going to start                         \033[34m#";
 	cd $signaling_loc
@@ -43,6 +44,7 @@ fn_start_signaling(){
 	fn_signaling_status;
 }
 
+#function to update signaling jar version
 fn_jar_update(){
 	echo -e "# ${Green}  Signaling  : new jar update                         \033[34m#";
         cd $signaling_loc
@@ -52,7 +54,7 @@ fn_jar_update(){
 	fn_start_signaling;
 }
 
-
+#function to stop signaling
 fn_stop_signaling(){
         process_id=$(/bin/ps -fu $USER| grep "iTelSwitchPlusSignaling.jar" | grep -v "grep" | awk '{print $2}')
         if [ -z $process_id ];then
@@ -64,10 +66,6 @@ fn_stop_signaling(){
 						cd $signaling_loc 
                         sh shutdowniTelSwitchPlusSignaling.sh > /dev/null 2>&1
                         sleep 2
-						sh shutdowniTelSwitchPlusSignaling.sh > /dev/null 2>&1
-						sleep 2
-						sh shutdowniTelSwitchPlusSignaling.sh > /dev/null 2>&1
-						sleep 2
                         kill -9 $process_id > /dev/null 2>&1
                         pkill -f "iTelSwitchPlusSignaling.jar" > /dev/null 2>&1
 						mv iTelSwitchPlusSignaling.log iTelSwitchPlusSignaling.log_$(date +%F_%s) > /dev/null 2>&1

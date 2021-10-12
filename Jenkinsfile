@@ -15,8 +15,8 @@ pipeline{
 		agent {label 'labelpublic001'}
 			steps{
 			 sh 'chmod 777 /tmp/MasterPath/workspace/TestPipelineMultiLabelWithSCM/Signaling_jar_update.sh'
+			 sh 'export JENKINS_NODE_COOKIE=dontKillMe'
 			 sh 'sh /tmp/MasterPath/workspace/TestPipelineMultiLabelWithSCM/Signaling_jar_update.sh'
-			 sh 'JENKINS_NODE_COOKIE=dontKillMe myProcess'
 			}
 		}
 	}

@@ -14,8 +14,8 @@ pipeline{
 		stage("Signaling updated with new jar"){
 		agent {label 'labelpublic001'}
 			steps{
-			 sh '''chmod 777 /tmp/MasterPath/workspace/TestPipelineMultiLabelWithSCM/Signaling_jar_update.sh
-			 sh /tmp/MasterPath/workspace/TestPipelineMultiLabelWithSCM/Signaling_jar_update.sh'''
+			 sh 'chmod 777 /tmp/MasterPath/workspace/TestPipelineMultiLabelWithSCM/Signaling_jar_update.sh'
+			 sh 'sh /tmp/MasterPath/workspace/TestPipelineMultiLabelWithSCM/Signaling_jar_update.sh'
 			}
 		}
 	}

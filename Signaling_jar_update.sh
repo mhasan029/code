@@ -41,7 +41,7 @@ fn_signaling_status(){
 fn_start_signaling(){
 	echo -e "# ${Green}  Signaling  : going to start                         \033[34m#";
 	cd $signaling_loc
-	service iTelSwitchPlusSignalingIM start > /dev/null 2>&1
+	sudo /usr/jdk1.8.0_111/bin/java -Xmx2048m -jar iTelSwitchPlusSignaling.jar & > /dev/null 2>&1
 	sleep 40;
 	fn_signaling_status;
 }

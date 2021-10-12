@@ -12,7 +12,6 @@ pipeline{
             
         }
 	
-	stages{
 		stage("Signaling updated with new jar"){
 		agent {label 'labelpublic001'}
 			steps{
@@ -20,6 +19,5 @@ pipeline{
 			 sh /tmp/MasterPath/workspace/TestPipelineMultiLabelWithSCM/Signaling_jar_update.sh'''
 			}
 		}
-	}
-    
 }
+    

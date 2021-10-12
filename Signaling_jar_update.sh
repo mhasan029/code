@@ -41,7 +41,7 @@ fn_signaling_status(){
 fn_start_signaling(){
 	echo -e "# ${Green}  Signaling  : going to start                         \033[34m#";
 	cd $signaling_loc
-	sh runiTelSwitchPlusSignaling.sh & > /dev/null 2>&1
+	sh runiTelSwitchPlusSignaling.sh &
 	sleep 40;
 	fn_signaling_status;
 }
